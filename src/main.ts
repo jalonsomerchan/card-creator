@@ -1,6 +1,7 @@
 import { mount } from 'svelte'
 import './app.css'
-import App from './AppVisual.svelte'
+import './inline-editor.css'
+import App from './AppInline.svelte'
 
 const app = mount(App, {
   target: document.getElementById('app')!,
