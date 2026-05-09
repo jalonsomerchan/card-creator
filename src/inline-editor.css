@@ -1,0 +1,264 @@
+.preset-grid,
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+.preset-card,
+.style-choice {
+  display: grid;
+  gap: 0.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.preset-card:hover,
+.style-choice:hover,
+.preset-card.active,
+.style-choice.active {
+  transform: translateY(-1px);
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  box-shadow: var(--shadow-xs);
+}
+
+.preset-card span,
+.preset-card small,
+.style-choice small {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+.style-choice {
+  min-height: 4.75rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.style-choice::after {
+  content: '';
+  position: absolute;
+  inset: auto 0.75rem 0.75rem auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.6rem;
+  background: var(--color-primary);
+  opacity: 0.18;
+}
+
+.style-choice.style-neon::after { background: #22d3ee; box-shadow: 0 0 18px #22d3ee; }
+.style-choice.style-parchment::after { background: #b45309; }
+.style-choice.style-tarot::after { background: #7c3aed; border-radius: 999px; }
+.style-choice.style-sci-fi::after { background: #06b6d4; clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%); }
+.style-choice.style-noir::after { background: #111827; }
+.style-choice.style-kids::after { background: #f97316; border-radius: 999px 40% 999px 40%; }
+
+.print-card.style-neon {
+  background: radial-gradient(circle at top, color-mix(in srgb, var(--accent-card) 28%, transparent), transparent 42%), #050816 !important;
+  color: #eff6ff !important;
+  border-color: var(--accent-card) !important;
+  box-shadow: 0 0 32px color-mix(in srgb, var(--accent-card) 46%, transparent), var(--shadow-md);
+}
+
+.print-card.style-neon .card-content,
+.print-card.style-neon .inline-title,
+.print-card.style-neon .inline-description {
+  color: #eff6ff;
+}
+
+.print-card.style-parchment {
+  background:
+    radial-gradient(circle at 20% 10%, rgb(255 255 255 / 0.32), transparent 9rem),
+    linear-gradient(135deg, #f5e6c8, #d8b47c) !important;
+  color: #3f2a12 !important;
+  border-color: #7c4a16 !important;
+}
+
+.print-card.style-tarot {
+  background:
+    radial-gradient(circle at 50% 18%, color-mix(in srgb, var(--accent-card) 35%, transparent), transparent 7rem),
+    linear-gradient(180deg, #231942, #0f172a) !important;
+  color: #f8fafc !important;
+  border-radius: 1.75rem;
+}
+
+.print-card.style-sci-fi {
+  background:
+    linear-gradient(90deg, rgb(255 255 255 / 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, #0f172a, #111827) !important;
+  background-size: 1rem 1rem, auto;
+  color: #e0f2fe !important;
+  border-color: #22d3ee !important;
+  border-radius: 0.6rem;
+}
+
+.print-card.style-noir {
+  background: linear-gradient(145deg, #0a0a0a, #27272a) !important;
+  color: #f4f4f5 !important;
+  border-color: #71717a !important;
+  filter: contrast(1.05);
+}
+
+.print-card.style-kids {
+  background:
+    radial-gradient(circle at 20% 20%, rgb(255 255 255 / 0.45), transparent 4rem),
+    linear-gradient(145deg, color-mix(in srgb, var(--accent-card) 18%, #ffffff), #fff7ed) !important;
+  color: #1f2937 !important;
+  border-width: 6px;
+  border-radius: 2rem;
+}
+
+.print-card.style-minimal {
+  border-width: 2px;
+  box-shadow: var(--shadow-xs);
+}
+
+.print-card.style-prototype {
+  background: repeating-linear-gradient(0deg, var(--color-surface) 0 1.4rem, var(--color-surface-soft) 1.4rem 1.46rem) !important;
+}
+
+.inline-card-content {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.inline-title,
+.inline-subtitle,
+.inline-description {
+  width: 100%;
+  border: 1px dashed transparent;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 76%, transparent);
+  color: inherit;
+  padding: 0.35rem 0.45rem;
+}
+
+.inline-title {
+  font-size: clamp(1.35rem, 6vw, 1.85rem);
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.05em;
+}
+
+.inline-subtitle {
+  color: var(--accent-card);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.inline-description {
+  min-height: 6.5rem;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.inline-title:focus,
+.inline-subtitle:focus,
+.inline-description:focus,
+.corner:focus {
+  outline: none;
+  border-color: var(--accent-card);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-card) 25%, transparent);
+}
+
+.inline-image-editor {
+  cursor: pointer;
+  position: relative;
+}
+
+.inline-image-editor input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.inline-image-editor span {
+  display: grid;
+  min-height: 8rem;
+  place-items: center;
+  color: var(--accent-card);
+  font-weight: 900;
+  text-align: center;
+}
+
+.corner {
+  border: 1px solid var(--accent-card);
+  text-align: center;
+  font: inherit;
+}
+
+.corner-0 { left: 0.75rem; top: 0.75rem; }
+.corner-1 { right: 0.75rem; top: 0.75rem; }
+.corner-2 { bottom: 0.75rem; left: 0.75rem; }
+.corner-3 { right: 0.75rem; bottom: 0.75rem; }
+
+.corner-visibility-grid {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.corner-toggle {
+  display: grid;
+  grid-template-columns: auto minmax(7rem, 1fr) 5rem;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+  padding: var(--space-2);
+  font-weight: 800;
+}
+
+.corner-toggle input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-primary);
+}
+
+.tile-thumb.style-neon,
+.tile-thumb.style-tarot,
+.tile-thumb.style-noir,
+.tile-thumb.style-sci-fi {
+  background: #111827 !important;
+  color: #f8fafc !important;
+}
+
+.tile-thumb.style-parchment {
+  background: linear-gradient(135deg, #f5e6c8, #d8b47c) !important;
+  color: #3f2a12 !important;
+}
+
+.tile-thumb.style-kids {
+  border-radius: 1.4rem;
+}
+
+@media (max-width: 560px) {
+  .preset-grid,
+  .style-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .corner-toggle {
+    grid-template-columns: auto 1fr;
+  }
+
+  .corner-toggle .input {
+    grid-column: 1 / -1;
+  }
+}
