@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 
-// GitHub Pages serves project sites from /<repo-name>/.
-// Keep local development at / so Vite HMR and dev URLs remain simple.
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/card-creator/' : '/',
+// Use relative assets so the app works both with a custom GitHub Pages domain
+// like https://cardcreator.alon.one/ and with project URLs like /card-creator/.
+export default defineConfig({
+  base: './',
   plugins: [svelte()],
-}))
+})
