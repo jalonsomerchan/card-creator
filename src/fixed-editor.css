@@ -1,0 +1,203 @@
+.generator-box {
+  display: grid;
+  gap: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-surface));
+  padding: var(--space-4);
+}
+
+.generator-box strong {
+  font-size: 1.05rem;
+}
+
+.generator-box span {
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.inline-title,
+.inline-subtitle,
+.inline-description,
+.corner {
+  background: transparent !important;
+  box-shadow: none;
+}
+
+.inline-title,
+.inline-subtitle,
+.inline-description {
+  border-color: transparent !important;
+}
+
+.inline-title:hover,
+.inline-subtitle:hover,
+.inline-description:hover,
+.corner:hover {
+  background: rgb(255 255 255 / 0.16) !important;
+  border-color: color-mix(in srgb, var(--accent-card) 55%, transparent) !important;
+}
+
+.inline-title:focus,
+.inline-subtitle:focus,
+.inline-description:focus,
+.corner:focus {
+  background: rgb(255 255 255 / 0.22) !important;
+  border-color: var(--accent-card) !important;
+}
+
+.print-card.style-neon .inline-title,
+.print-card.style-neon .inline-subtitle,
+.print-card.style-neon .inline-description,
+.print-card.style-tarot .inline-title,
+.print-card.style-tarot .inline-subtitle,
+.print-card.style-tarot .inline-description,
+.print-card.style-noir .inline-title,
+.print-card.style-noir .inline-subtitle,
+.print-card.style-noir .inline-description,
+.print-card.style-sci-fi .inline-title,
+.print-card.style-sci-fi .inline-subtitle,
+.print-card.style-sci-fi .inline-description {
+  color: #f8fafc;
+}
+
+.visual-card-grid {
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+}
+
+.mini-card-preview {
+  position: relative;
+  display: flex;
+  min-height: 13.5rem;
+  flex-direction: column;
+  overflow: hidden;
+  border: 3px solid;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.mini-card-preview.style-classic { border-width: 6px; }
+.mini-card-preview.style-prototype { border-style: dashed; }
+.mini-card-preview.style-minimal { border-width: 2px; }
+.mini-card-preview.style-neon,
+.mini-card-preview.style-tarot,
+.mini-card-preview.style-noir,
+.mini-card-preview.style-sci-fi {
+  background: #111827 !important;
+  color: #f8fafc !important;
+}
+.mini-card-preview.style-parchment {
+  background: linear-gradient(135deg, #f5e6c8, #d8b47c) !important;
+  color: #3f2a12 !important;
+}
+.mini-card-preview.style-kids { border-radius: 1.4rem; }
+
+.mini-image {
+  min-height: 36%;
+  margin: 0.7rem 0.7rem 0;
+  overflow: hidden;
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--accent-card) 12%, transparent);
+}
+
+.mini-image.full-image {
+  position: absolute;
+  inset: 0;
+  min-height: auto;
+  margin: 0;
+  border-radius: 0;
+  opacity: 0.25;
+}
+
+.mini-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 5rem;
+  object-fit: cover;
+}
+
+.mini-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.25rem;
+  flex: 1;
+  padding: 0.8rem;
+}
+
+.mini-content small {
+  color: var(--accent-card);
+  font-size: 0.7rem;
+  font-weight: 950;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mini-content strong {
+  font-size: 1rem;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.mini-content p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: inherit;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  opacity: 0.82;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.mini-corner {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  min-width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  border: 1px solid var(--accent-card);
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--accent-card) 14%, white);
+  color: #0f172a;
+  font-size: 0.7rem;
+  font-weight: 950;
+}
+
+.mini-corner-0 { left: 0.45rem; top: 0.45rem; }
+.mini-corner-1 { right: 0.45rem; top: 0.45rem; }
+.mini-corner-2 { left: 0.45rem; bottom: 0.45rem; }
+.mini-corner-3 { right: 0.45rem; bottom: 0.45rem; }
+
+.mini-stats {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0 0.75rem 0.75rem;
+}
+
+.mini-stats span {
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--accent-card) 14%, transparent);
+  padding: 0.2rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 850;
+}
+
+.tile-thumb {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .generator-box .btn {
+    width: 100%;
+  }
+
+  .mini-card-preview {
+    min-height: 12rem;
+  }
+}
